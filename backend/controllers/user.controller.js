@@ -113,14 +113,12 @@ export const updateProfile = async (req, res) => {
   try {
     const { fullname, email, phoneNumber, bio, skills } = req.body;
     const file = req.file;
-    if (!fullname || !email || !phoneNumber || !bio || !skills) {
-      return res.status(400).json({
-        message: "something is missing",
-        success: false,
-      });
-    }
+    let skillsArray;
     //cloudinary thing
-    const skillsArray = skills.split(",");
+    if(skills){
+      skillsArray = skills.split(",");
+
+    }
     const userId = req.id; //middle ware authentication
     let user = await User.findById(userId);
     if (!user) {
@@ -130,11 +128,12 @@ export const updateProfile = async (req, res) => {
       });
     }
     //updating data
-    (user.fullname = fullname),
-      (user.email = email),
-      (user.phoneNumber = phoneNumber),
-      (user.profile.bio = bio),
-      (user.profile.skills = skillsArray);
+    if(fullname) user.fullname=fullname;
+    if(email) user.email=email;
+    if(phoneNumber) user.phoneNumber=phoneNumber;
+    if(bio) user.profile.bio=bio;
+    if(skills) user.profile.skills= skills
+
 
     //resume updation comes here
     await user.save();
