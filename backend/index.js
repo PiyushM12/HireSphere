@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 import connectDB from "./utils/db.js";
 import userRoute from "./routes/user.route.js";
 import companyRoute from "./routes/company.route.js"
+import jobRoute from "./routes/job.route.js"
 //middleware
 dotenv.config({});
 app.use(express.json());
@@ -23,6 +24,7 @@ const PORT = 3000 //process.env.PORT || 3000;
 
 app.use("/api/v1/user",userRoute);
 app.use("/api/v1/company",companyRoute);
+app.use("/api/v1/job",jobRoute);
 app.listen(PORT, () => {
   connectDB();
   console.log(`server running on port ${PORT}`);
