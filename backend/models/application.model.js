@@ -1,17 +1,13 @@
 import mongoose from "mongoose";
  const applicationSchema= new mongoose.Schema({
     job:{
-        type:mongoose.Schmea.Types.ObjectId,
-        ref:'job',
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Job',
         required:true
     },
-    job:{
-        type:mongoose.Schmea.Types.ObjectId,
-        ref:'job',
-        required:true
-    },
+  
     applicant:{
-        type:mongoose.Schmea.Types.ObjectId,
+        type:mongoose.Schema.Types.ObjectId,
         ref:'User',
         required:true
     },
