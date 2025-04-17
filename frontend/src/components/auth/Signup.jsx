@@ -11,6 +11,7 @@ import { toast } from "sonner";
 import { useDispatch, useSelector } from "react-redux";
 import store from "@/redux/store";
 import { setLoading } from "@/redux/authSlice";
+import { Loader2 } from "lucide-react";
 
 function Signup() {
   const [input, setInput] = useState({
