@@ -27,7 +27,7 @@ function Navbar() {
 
         {/* Nav Links & Avatar */}
         <div className="flex items-center gap-6">
-          <ul className="flex font-medium items-center gap-6 text-gray-700 text-base">
+          {/* <ul className="flex font-medium items-center gap-6 text-gray-700 text-base">
             {["Home", "Jobs", "Browse"].map((item) => (
               <li
                 key={item}
@@ -36,7 +36,19 @@ function Navbar() {
                 {item}
               </li>
             ))}
-          </ul>
+          </ul> */}
+          <li className="relative cursor-pointer transition duration-200 hover:text-violet-700 after:block after:content-[''] after:absolute after:h-0.5 after:bg-violet-600 after:w-0 after:hover:w-full after:transition-all after:duration-300 after:mt-1 after:rounded-full">
+            <Link to='/'>Home
+            </Link>
+          </li>
+          <li className="relative cursor-pointer transition duration-200 hover:text-violet-700 after:block after:content-[''] after:absolute after:h-0.5 after:bg-violet-600 after:w-0 after:hover:w-full after:transition-all after:duration-300 after:mt-1 after:rounded-full">
+            <Link to='/jobs'>Jobs
+            </Link>
+          </li >
+          <li className="relative cursor-pointer transition duration-200 hover:text-violet-700 after:block after:content-[''] after:absolute after:h-0.5 after:bg-violet-600 after:w-0 after:hover:w-full after:transition-all after:duration-300 after:mt-1 after:rounded-full">
+            <Link to='/'>Browse
+            </Link>
+          </li>
           {!user ? (
             <div className="flex items-center gap-2">
               <Link to="/login">

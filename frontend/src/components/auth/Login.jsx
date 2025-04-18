@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "@/redux/authSlice";
 import { Loader2 } from "lucide-react";
 
+
 function Login() {
   const navigate= useNavigate();
   const [input, setInput] = useState({
@@ -49,7 +50,7 @@ function Login() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div>
       <Navbar />
       <div className="flex justify-center items-center py-10 px-4">
         <form
