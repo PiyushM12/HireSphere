@@ -4,9 +4,11 @@ import { Avatar, AvatarImage } from "../ui/avatar";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Button } from "../ui/button";
 import { LogOut, User2 } from "lucide-react";
+import { useSelector } from "react-redux";
 
 function Navbar() {
-  const user = false;
+  const user = useSelector(store=>store.auth);
+ 
   return (
     <div className="bg-white shadow-sm border-b">
       <div className="flex items-center justify-between mx-auto max-w-7xl h-16 px-6">
@@ -46,7 +48,7 @@ function Navbar() {
             </Link>
           </li >
           <li className="relative cursor-pointer transition duration-200 hover:text-violet-700 after:block after:content-[''] after:absolute after:h-0.5 after:bg-violet-600 after:w-0 after:hover:w-full after:transition-all after:duration-300 after:mt-1 after:rounded-full">
-            <Link to='/'>Browse
+            <Link to='/browse'>Browse
             </Link>
           </li>
           {!user ? (
@@ -94,7 +96,7 @@ function Navbar() {
                 <div className="flex flex-col gap-2 border-t pt-3">
                   <Button variant="ghost" className="justify-start gap-2">
                     <User2 size={18} />
-                    View Profile
+                    <Link to="/profile">View Profile</Link> 
                   </Button>
                   <Button
                     variant="ghost"
